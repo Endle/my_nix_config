@@ -17,12 +17,11 @@ jobs:
     - run: |
         nix-shell -p wezterm -p neovim
         nix-shell -p mpv
-        
     - run: |
        nix-shell -p ripgrep
        nix-shell -p eza
     - name: FileZilla
-    - run: NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix-shell -p filezilla
+      run: NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix-shell -p filezilla
     - name: LibreOffice
       run: |
          if [ "$RUNNER_OS" == "Linux" ]; then
