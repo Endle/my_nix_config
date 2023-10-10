@@ -21,7 +21,26 @@ jobs:
        nix-shell -p ripgrep
        nix-shell -p eza
     - name: FileZilla
-      run: NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix-shell -p filezilla
+      run: |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p filezilla
+           elif [ "$RUNNER_OS" == "macOS" ]; then
+                echo "SKIP $RUNNER_OS not supported"
+           else
+                echo "$RUNNER_OS not supported"
+                exit 1
+           fi
+    - name: LogSeq
+        # logseq https://github.com/NixOS/nixpkgs/blob/4d34cbeeced65607945be9af329b826794cb81b3/pkgs/applications/misc/logseq/default.nix#L20
+      run: |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p logseq
+           elif [ "$RUNNER_OS" == "macOS" ]; then
+                echo "SKIP $RUNNER_OS not supported"
+           else
+                echo "$RUNNER_OS not supported"
+                exit 1
+           fi
     - name: LibreOffice
       run: |
          if [ "$RUNNER_OS" == "Linux" ]; then
@@ -32,4 +51,4 @@ jobs:
               echo "$RUNNER_OS not supported"
               exit 1
          fi
-    # logseq https://github.com/NixOS/nixpkgs/blob/4d34cbeeced65607945be9af329b826794cb81b3/pkgs/applications/misc/logseq/default.nix#L20
+
