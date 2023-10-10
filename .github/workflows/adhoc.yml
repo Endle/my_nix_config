@@ -15,9 +15,9 @@ jobs:
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
     - run: |
-        nix-shell -p logseq
         nix-shell -p wezterm -p neovim
         nix-shell -p exa ripgrep
         nix-shell -p mpv
         nix-shell -p libreoffice
         nix-shell -p filezilla
+    # logseq
