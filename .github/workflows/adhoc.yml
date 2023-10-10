@@ -17,9 +17,18 @@ jobs:
     - run: |
         nix-shell -p wezterm -p neovim
         nix-shell -p mpv
-        nix-shell -p libreoffice
         nix-shell -p filezilla
     - run: |
        nix-shell -p ripgrep
        nix-shell -p eza
+    - name: LibreOffice
+      run: |
+         if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p libreoffice
+         elif [ "$RUNNER_OS" == "macOS" ]; then
+              nix-env -iA libreoffice
+         else
+              echo "$RUNNER_OS not supported"
+              exit 1
+         fi
     # logseq https://github.com/NixOS/nixpkgs/blob/4d34cbeeced65607945be9af329b826794cb81b3/pkgs/applications/misc/logseq/default.nix#L20
