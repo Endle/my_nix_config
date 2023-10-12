@@ -51,4 +51,5 @@ jobs:
               echo "$RUNNER_OS not supported"
               exit 1
          fi
-
+    - name: Beancount
+      run: nix-shell -p fava beancount pandas
