@@ -56,3 +56,4 @@ jobs:
         nix-shell -p fava beancount
         # pandas
     - run: nix-shell -p geany
+    - run: nix-shell -p sioyek
