@@ -10,6 +10,7 @@
 	pkgs.geany
 
 	pkgs.eza
+	pkgs.wezterm
     ];
 
   # Use a custom configuration.nix location.
