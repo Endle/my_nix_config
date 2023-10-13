@@ -1,0 +1,65 @@
+name: "nix_darwin"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: DeterminateSystems/nix-installer-action@main
+    - uses: DeterminateSystems/magic-nix-cache-action@main
+    - run: nix-shell -p nix-info --run "nix-info -m"
+    - name: Install Nix-darwin
+      run: |
+        nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+        ./result/bin/darwin-installer
+    - run: cp darwin-configuration.nix ~/.nixpkgs --force
+    - run: darwin-rebuild switch
+    - run: |
+        nix-shell -p wezterm -p neovim
+        nix-shell -p mpv
+    - run: |
+       nix-shell -p ripgrep
+       nix-shell -p eza
+    - name: FileZilla
+      run: |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p filezilla
+           elif [ "$RUNNER_OS" == "macOS" ]; then
+                echo "SKIP $RUNNER_OS not supported"
+           else
+                echo "$RUNNER_OS not supported"
+                exit 1
+           fi
+    - name: LogSeq
+        # logseq https://github.com/NixOS/nixpkgs/blob/4d34cbeeced65607945be9af329b826794cb81b3/pkgs/applications/misc/logseq/default.nix#L20
+      run: |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p logseq
+           elif [ "$RUNNER_OS" == "macOS" ]; then
+                echo "SKIP $RUNNER_OS not supported"
+           else
+                echo "$RUNNER_OS not supported"
+                exit 1
+           fi
+    - name: LibreOffice
+      run: |
+         if [ "$RUNNER_OS" == "Linux" ]; then
+              nix-shell -p libreoffice
+         elif [ "$RUNNER_OS" == "macOS" ]; then
+              nix-shell -p libreoffice-bin
+         else
+              echo "$RUNNER_OS not supported"
+              exit 1
+         fi
+    - name: Beancount
+      run: |
+        nix-shell -p fava beancount
+        # pandas
+    - run: nix-shell -p geany
+    - run: nix-shell -p sioyek
