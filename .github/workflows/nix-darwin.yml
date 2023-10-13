@@ -21,7 +21,7 @@ jobs:
         git clone https://github.com/LnL7/nix-darwin.git --depth=1
         cd nix-darwin
         nix-build ./release.nix -I nixpkgs=channel:${{ env.CURRENT_STABLE_CHANNEL }} -I darwin=. -A examples.simple
-    - run: cp darwin-configuration.nix ~/.nixpkgs --force
+    - run: cp  --force darwin-configuration.nix ~/.nixpkgs
     - run: darwin-rebuild switch
     - run: |
         nix-shell -p wezterm -p neovim
