@@ -7,10 +7,15 @@
     [ 
 	pkgs.vim
 	pkgs.git
-	pkgs.geany
 
 	pkgs.eza
+
+
+	pkgs.geany
+
 	pkgs.wezterm
+
+	pkgs.libreoffice-bin
     ];
 
   # Use a custom configuration.nix location.
