@@ -1,4 +1,6 @@
 name: "nix_darwin"
+env:
+  CURRENT_STABLE_CHANNEL: nixpkgs-23.05-darwin
 on:
   pull_request:
   push:
@@ -16,8 +18,9 @@ jobs:
     - run: nix-shell -p nix-info --run "nix-info -m"
     - name: Install Nix-darwin
       run: |
-        nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-        ./result/bin/darwin-installer
+        git clone https://github.com/LnL7/nix-darwin.git --depth=1
+        cd nix-darwin
+        nix-build ./release.nix -I nixpkgs=channel:${{ env.CURRENT_STABLE_CHANNEL }} -I darwin=. -A examples.simple
     - run: cp darwin-configuration.nix ~/.nixpkgs --force
     - run: darwin-rebuild switch
     - run: |
