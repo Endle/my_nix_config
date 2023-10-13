@@ -8,6 +8,8 @@
 	pkgs.vim
 	pkgs.git
 	pkgs.geany
+
+	pkgs.eza
     ];
 
   # Use a custom configuration.nix location.
