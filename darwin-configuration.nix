@@ -5,10 +5,10 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [ 
-	pkgs.vim
 	pkgs.git
 
 	pkgs.eza
+	pkgs.ripgrep
 
 
 	pkgs.geany
@@ -17,6 +17,10 @@
 
 	pkgs.libreoffice-bin
     ];
+	programs.neovim = {
+	  enable = true;
+	  defaultEditor = true;
+	};
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
