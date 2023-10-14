@@ -7,8 +7,10 @@
     [ 
 	pkgs.git
 	pkgs.htop
+  pkgs.wget
 	pkgs.eza
 	pkgs.ripgrep
+  pkgs.fd
 
   # make lunarvim happy
   pkgs.clangStdenv 
