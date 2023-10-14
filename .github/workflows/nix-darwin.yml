@@ -16,15 +16,14 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
-    - name: Install config
-      run: nix-env --install --file darwin-configuration.nix
     - name: Install Nix-darwin
       run: |
-        #nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-        git clone https://github.com/LnL7/nix-darwin.git --depth=1
-        cd nix-darwin
-        nix-build ./release.nix -I nixpkgs=channel:${{ env.CURRENT_STABLE_CHANNEL }} -I darwin=. -A examples.simple
-        ./result/bin/darwin-installer
+        # nix-env --install --file darwin-configuration.nix
+        nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+        #git clone https://github.com/LnL7/nix-darwin.git --depth=1
+        #cd nix-darwin
+        #nix-build ./release.nix -I nixpkgs=channel:${{ env.CURRENT_STABLE_CHANNEL }} -I darwin=. -A examples.simple
+        #./result/bin/darwin-installer
     - run: |
         rm -f ~/.nixpkgs/darwin-configuration.nix
         cp  darwin-configuration.nix ~/.nixpkgs
