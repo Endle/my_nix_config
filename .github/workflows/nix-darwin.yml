@@ -16,6 +16,8 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
+    - name: Install config
+      run: nix-env --install --file darwin-configuration.nix
     - name: Install Nix-darwin
       run: |
         #nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
