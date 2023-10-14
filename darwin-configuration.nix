@@ -10,7 +10,9 @@
 	pkgs.eza
 	pkgs.ripgrep
 
-  pkgs.gnumake # make lunarvim happy
+  # make lunarvim happy
+  pkgs.clangStdenv 
+  pkgs.gnumake 
 
 	pkgs.neovim
 
