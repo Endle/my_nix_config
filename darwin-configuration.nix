@@ -38,7 +38,6 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = false;  # default shell on catalina
-  # programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
