@@ -16,6 +16,7 @@
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
+	pkgs.mpv
     ];
 
   # Use a custom configuration.nix location.
