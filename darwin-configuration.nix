@@ -12,15 +12,12 @@
 
 
 	pkgs.geany
+	pkgs.neovim
 
 	pkgs.wezterm
 
 	pkgs.libreoffice-bin
     ];
-	programs.neovim = {
-	  enable = true;
-	  defaultEditor = true;
-	};
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
