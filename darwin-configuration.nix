@@ -12,6 +12,7 @@
 
   # make lunarvim happy
   pkgs.clangStdenv 
+  pkgs.clang
   pkgs.gnumake 
 
 	pkgs.neovim
@@ -41,5 +42,4 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  stdenv = pkgs.clangStdenv;
 }
