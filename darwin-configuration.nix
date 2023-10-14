@@ -6,16 +6,15 @@
   environment.systemPackages =
     [ 
 	pkgs.git
-
+	pkgs.htop
 	pkgs.eza
 	pkgs.ripgrep
 
-
-	pkgs.geany
 	pkgs.neovim
 
 	pkgs.wezterm
 
+	pkgs.sioyek
 	pkgs.libreoffice-bin
     ];
 
