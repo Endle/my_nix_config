@@ -13,9 +13,9 @@
   pkgs.fd
 
   # make lunarvim happy
-  pkgs.clangStdenv 
-  pkgs.clang
-  pkgs.gnumake 
+  # pkgs.clangStdenv 
+  # pkgs.clang
+  # pkgs.gnumake 
 
 	pkgs.neovim
 
