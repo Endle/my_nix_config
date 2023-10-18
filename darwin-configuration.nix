@@ -15,8 +15,8 @@
   # make lunarvim happy
 	pkgs.tree-sitter
   # pkgs.clangStdenv 
-  # pkgs.clang
-  # pkgs.gnumake 
+  pkgs.clang
+  pkgs.gnumake 
 
 	pkgs.neovim
 
