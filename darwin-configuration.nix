@@ -5,9 +5,12 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [ 
+
 	pkgs.git
+
 	pkgs.htop
-  	pkgs.wget
+  
+  pkgs.wget
 	pkgs.eza
 	pkgs.ripgrep
 	pkgs.fd
@@ -22,6 +25,7 @@
 	pkgs.neovim
 
 
+  pkgs.yazi
 	pkgs.wezterm
 
 	pkgs.sioyek
