@@ -7,6 +7,7 @@
     [ 
 
 	pkgs.git
+  pkgs.git-lfs
 
 	pkgs.htop
   
@@ -30,6 +31,7 @@
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
+  pkgs.inkscape
 # mpv buggy now: https://matrix.to/#/!lheuhImcToQZYTQTuI:nixos.org/$ZsUQH38c1LkOph_y1Jh4yVMgekP_Pg8iwYumSl8VFeE?via=nixos.org&via=matrix.org&via=nixos.dev
 	pkgs.mpv
     ];
