@@ -16,14 +16,11 @@
 	pkgs.ripgrep
 	pkgs.fd
 
-  pkgs.darwin.xcode_12_3
+  # pkgs.darwin.xcode_12_3
 
   # make lunarvim happy
 	pkgs.tree-sitter
-  pkgs.gcc
-  # pkgs.clangStdenv 
-  # pkgs.clang
-  pkgs.gnumake 
+  pkgs.stdenv
 
 	pkgs.neovim
 
