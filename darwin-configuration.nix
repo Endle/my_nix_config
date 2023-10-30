@@ -16,6 +16,8 @@
 	pkgs.ripgrep
 	pkgs.fd
 
+  pkgs.darwin.xcode_12_3
+
   # make lunarvim happy
 	pkgs.tree-sitter
   pkgs.gcc
@@ -35,6 +37,9 @@
 # mpv buggy now: https://matrix.to/#/!lheuhImcToQZYTQTuI:nixos.org/$ZsUQH38c1LkOph_y1Jh4yVMgekP_Pg8iwYumSl8VFeE?via=nixos.org&via=matrix.org&via=nixos.dev
 	pkgs.mpv
     ];
+
+
+  nixpkgs.config.allowUnfree = true; # For xcode
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
