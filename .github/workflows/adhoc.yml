@@ -30,17 +30,6 @@ jobs:
                 echo "$RUNNER_OS not supported"
                 exit 1
            fi
-    - name: LogSeq
-        # logseq https://github.com/NixOS/nixpkgs/blob/4d34cbeeced65607945be9af329b826794cb81b3/pkgs/applications/misc/logseq/default.nix#L20
-      run: |
-           if [ "$RUNNER_OS" == "Linux" ]; then
-              nix-shell -p logseq
-           elif [ "$RUNNER_OS" == "macOS" ]; then
-                echo "SKIP $RUNNER_OS not supported"
-           else
-                echo "$RUNNER_OS not supported"
-                exit 1
-           fi
     - name: LibreOffice
       run: |
          if [ "$RUNNER_OS" == "Linux" ]; then
