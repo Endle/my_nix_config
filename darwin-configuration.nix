@@ -20,7 +20,8 @@
 
   # make lunarvim happy
 	pkgs.tree-sitter
-  pkgs.stdenv
+  pkgs.gcc
+  pkgs.gnumake
 
 	pkgs.neovim
 
@@ -36,11 +37,8 @@
     ];
 
 
-  nixpkgs.config.allowUnfree = true; # For xcode
+  # nixpkgs.config.allowUnfree = true; # For xcode
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
