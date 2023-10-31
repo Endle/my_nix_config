@@ -6,14 +6,15 @@
   environment.systemPackages =
     [ 
 
+# Code Management
 	pkgs.git
   pkgs.git-lfs
   pkgs.mercurial
 
 
 
+# Bash tools
 	pkgs.htop
-  
   pkgs.wget
 	pkgs.eza
 	pkgs.ripgrep
@@ -21,16 +22,22 @@
 
   # pkgs.darwin.xcode_12_3
 
-  # make lunarvim happy
-	pkgs.tree-sitter
+
+# Dev tools
+	pkgs.tree-sitter # make lunarvim happy
   pkgs.gcc
   pkgs.gnumake
 
 	pkgs.neovim
 
 
+# Terminal
   pkgs.yazi
 	pkgs.wezterm
+
+# Applications
+
+  pkgs.utm
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
