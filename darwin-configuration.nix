@@ -38,7 +38,6 @@
 # Applications
 
 
-  pkgs.transmission
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
