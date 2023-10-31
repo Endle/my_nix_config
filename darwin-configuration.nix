@@ -37,7 +37,8 @@
 
 # Applications
 
-  pkgs.utm
+
+  pkgs.transmission
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
