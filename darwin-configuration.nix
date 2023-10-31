@@ -8,6 +8,9 @@
 
 	pkgs.git
   pkgs.git-lfs
+  pkgs.mercurial
+
+
 
 	pkgs.htop
   
