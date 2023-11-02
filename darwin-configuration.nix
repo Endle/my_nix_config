@@ -15,6 +15,7 @@
 
 # Bash tools
 	pkgs.htop
+  pkgs.btop
   pkgs.wget
 	pkgs.eza
 	pkgs.ripgrep
