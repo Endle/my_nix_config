@@ -1,10 +1,23 @@
 { config, pkgs, ... }:
 
+
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages =
+  nixpkgs.config = {
+    packageOverrides = pkgs: with pkgs; {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
+  environment.systemPackages = with pkgs;
     [ 
+    unstable.ArchiSteamFarm
 
 # Code Management
 	pkgs.git
