@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 for file in `ls *.nix`
 do
   if [[ $file == "darwin-configuration.nix" ]]
