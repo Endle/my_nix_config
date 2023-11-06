@@ -17,7 +17,7 @@ jobs:
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
     - run: |
-        nix-shell  darwin-configuration.nix 
+         nix-env --switch-profile darwin-configuration.nix 
     - run: darwin-rebuild switch
     - run: |
         nix-shell -p wezterm -p neovim
