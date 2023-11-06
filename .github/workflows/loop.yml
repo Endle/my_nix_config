@@ -1,4 +1,4 @@
-name: "adhoc_test"
+name: "loop_test"
 on:
   pull_request:
   push:
