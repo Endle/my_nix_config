@@ -14,4 +14,4 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
-    - run: nix-shell .github/workflows/loop.sh
+    - run: bash .github/workflows/loop.sh
