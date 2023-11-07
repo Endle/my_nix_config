@@ -9,5 +9,5 @@ do
     continue
   fi
   echo "Testing $file"
-  nix-shell "$file" --run "nix-info -m"
+  nix-shell "$file" --run "nix --version"
 done
