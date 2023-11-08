@@ -14,9 +14,7 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
-    - run: |
-        nix-shell -p wezterm 
-        nix-shell -p mpv
+    - run: nix-shell -p mpv
     - run: nix-shell -p neovim
     - run: |
        nix-shell -p ripgrep
