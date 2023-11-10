@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+unstable = import <unstable> {
+    config = config.nixpkgs.config; 
+  };
+in
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -39,6 +44,8 @@
 # Applications
 
 
+
+  unstable.ArchiSteamFarm
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin

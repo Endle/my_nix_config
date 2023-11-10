@@ -10,8 +10,5 @@ alias bc='cd ~/beancount && nix-shell ~/.nixpkgs/bc.nix'
 alias bck='cd ~/beancount && nix-shell ~/.nixpkgs/bc.nix --run "bean-check main.beancount" && echo Finished'
 
 
-asf() {
-  cd ~/src/nixpkgs/pkgs/applications/misc/ArchiSteamFarm
-  nix build .#ArchiSteamFarm --extra-experimental-features nix-command --extra-experimental-features flakes
-  ./result/bin/ArchiSteamFarm
-}
+alias asf='ArchiSteamFarm'
+
