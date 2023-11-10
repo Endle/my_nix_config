@@ -1,16 +1,15 @@
 { config,  pkgs, ... }:
 
 let
-unstable = import <unstable> {
+  unstable = import <unstable> {
     config = config.nixpkgs.config; 
   };
-  # For texstudio https://github.com/NixOS/nixpkgs/issues/266548
-  forcepkgs = import <unstable> { config = { allowUnsupportedSystem = true; }; overlays = []; };
-
+  forcepkgs = import <unstable> { 
+    # For texstudio https://github.com/NixOS/nixpkgs/issues/266548
+    config = { allowUnsupportedSystem = true; }; overlays = []; 
+  };
 in
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [ 
 
