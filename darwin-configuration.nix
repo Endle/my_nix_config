@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config,  ... }:
 
 let
 unstable = import <unstable> {
     config = config.nixpkgs.config; 
   };
+     # pkgs = import nixpkgs { config = { allowUnsupportedSystem = true; }; overlays = []; };
+    pkgs = import <nixpkgs> { config = { allowUnsupportedSystem = true; }; overlays = []; };
+     # pkgs.config.allowUnsupportedSystem = true;
+
 in
 {
   # List packages installed in system profile. To search by name, run:
@@ -44,6 +48,8 @@ in
 # Applications
 
 
+      pkgs.texstudio
+      pkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm
 
