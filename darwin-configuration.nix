@@ -1,12 +1,11 @@
-{ config,  ... }:
+{ config,  pkgs, ... }:
 
 let
 unstable = import <unstable> {
     config = config.nixpkgs.config; 
   };
-     # pkgs = import nixpkgs { config = { allowUnsupportedSystem = true; }; overlays = []; };
-    pkgs = import <nixpkgs> { config = { allowUnsupportedSystem = true; }; overlays = []; };
-     # pkgs.config.allowUnsupportedSystem = true;
+  # For texstudio https://github.com/NixOS/nixpkgs/issues/266548
+  forcepkgs = import <unstable> { config = { allowUnsupportedSystem = true; }; overlays = []; };
 
 in
 {
@@ -48,8 +47,8 @@ in
 # Applications
 
 
-      pkgs.texstudio
-      pkgs.texlive.combined.scheme-full
+      forcepkgs.texstudio
+      forcepkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm
 
