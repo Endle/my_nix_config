@@ -3,8 +3,8 @@
 let
   my-python-packages = ps: with ps; [
     pandas
-    requests
-    # other python packages
+    jupyter
+    rdkit
   ];
   my-python = pkgs.python3.withPackages my-python-packages;
 in my-python.env
