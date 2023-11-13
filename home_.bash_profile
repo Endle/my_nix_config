@@ -12,3 +12,6 @@ alias bck='cd ~/beancount && nix-shell ~/.nixpkgs/bc.nix --run "bean-check main.
 
 alias asf='ArchiSteamFarm'
 
+nb () {
+  nix build .#"$1"  --extra-experimental-features nix-command --extra-experimental-features flakes
+}
