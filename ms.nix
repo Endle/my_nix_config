@@ -5,6 +5,7 @@ let
     pandas
     jupyter
     rdkit
+    matplotlib
     (
       buildPythonPackage rec {
         pname = "spectrum_utils";

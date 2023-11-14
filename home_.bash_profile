@@ -15,3 +15,7 @@ alias asf='ArchiSteamFarm'
 nb () {
   nix build .#"$1"  --extra-experimental-features nix-command --extra-experimental-features flakes
 }
+
+ms () {
+  nix-shell ~/.nixpkgs/ms.nix --run "cd /Users/zhenboli/src/mhc_predict/ && jupyter notebook"
+}
