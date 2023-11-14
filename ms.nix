@@ -20,6 +20,19 @@ let
         ];
       }
     )
+    (
+      buildPythonPackage rec {
+        pname = "pyteomics";
+        version = "4.6.3";
+        src = fetchPypi {
+          inherit pname version;
+          sha256 = "sha256-47sR5X2j5SynaNlP7RLJ9m1zAP1YvMvGc238Bwf9lUY=";
+        };
+        doCheck = false;
+        propagatedBuildInputs = [
+        ];
+      }
+    )
   ];
   my-python = pkgs.python3.withPackages my-python-packages;
 in my-python.env
