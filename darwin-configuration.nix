@@ -21,6 +21,8 @@ in
 
 
 # Bash tools
+  pkgs.coreutils-full
+
 	pkgs.htop
   pkgs.btop
   pkgs.wget
