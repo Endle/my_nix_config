@@ -17,5 +17,7 @@ nb () {
 }
 
 ms () {
-  nix-shell ~/.nixpkgs/ms.nix --run "cd /Users/zhenboli/src/mhc_predict/ && jupyter notebook"
+  # nix-shell ~/.nixpkgs/ms.nix --run "cd /Users/zhenboli/src/mhc_predict/ && jupyter notebook"
+  nix-shell -p python3 --run \
+    "source ~/src/ms_env/bin/activate && cd /Users/zhenboli/src/mhc_predict/ && jupyter notebook"
 }
