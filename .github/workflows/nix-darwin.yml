@@ -28,6 +28,7 @@ jobs:
         cp darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
     - run: |
         echo $NIX_PATH
+        nix-build '<darwin>' -A system --no-out-link
         #/run/current-system/sw/bin/darwin-rebuild build
         #$(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
     - run: |
