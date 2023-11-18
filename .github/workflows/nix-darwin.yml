@@ -21,12 +21,10 @@ jobs:
         nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
         nix-channel --update
     - run: |
-        export NIX_PATH=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
-        echo $NIX_PATH
-    - run: |
         mkdir ~/.nixpkgs
         cp darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
     - run: |
+        export NIX_PATH=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
         echo $NIX_PATH
         nix-build '<darwin>' -A system --no-out-link
         #/run/current-system/sw/bin/darwin-rebuild build
