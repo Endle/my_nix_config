@@ -1,4 +1,4 @@
-name: "nix_darwin"
+name: "nix_darwin_manual"
 env:
   CURRENT_STABLE_CHANNEL: nixpkgs-23.05-darwin
 on:
@@ -28,7 +28,7 @@ jobs:
         cp darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
     - run: |
         echo $NIX_PATH
-        /run/current-system/sw/bin/darwin-rebuild build
+        #/run/current-system/sw/bin/darwin-rebuild build
         #$(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
     - run: |
         $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
