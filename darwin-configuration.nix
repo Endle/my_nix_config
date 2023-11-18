@@ -5,7 +5,6 @@ let
     config = config.nixpkgs.config; 
   };
   forcepkgs = import <unstable> { 
-    # For texstudio https://github.com/NixOS/nixpkgs/issues/266548
     config = { allowUnsupportedSystem = true; }; overlays = []; 
   };
 in
@@ -48,7 +47,8 @@ in
 # Applications
 
 
-  unstable.texstudio
+  forcepkgs.texstudio
+  # unstable.texstudio
   pkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm
