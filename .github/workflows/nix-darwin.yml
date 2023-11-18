@@ -22,6 +22,7 @@ jobs:
         nix-channel --update
     - run: |
         export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
+        echo $NIX_PATH
     - run: |
         mkdir ~/.nixpkgs
         cp darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
