@@ -48,8 +48,8 @@ in
 # Applications
 
 
-      forcepkgs.texstudio
-      forcepkgs.texlive.combined.scheme-full
+  unstable.texstudio
+  pkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm
 
