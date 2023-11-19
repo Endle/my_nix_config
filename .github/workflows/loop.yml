@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: DeterminateSystems/nix-installer-action@main
-    - name: My first step
+    - name: Load Nix Cache (macOS only)
       if: ${{ matrix.os == 'macos-latest' }}
       uses: DeterminateSystems/magic-nix-cache-action@main
     #- uses: DeterminateSystems/magic-nix-cache-action@main
