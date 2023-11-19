@@ -29,10 +29,5 @@ jobs:
         export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
         echo $NIX_PATH
         $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
-    - run: |
-        export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
-        echo $NIX_PATH
-        $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild switch
-    - run: |
-        . /etc/static/bashrc
+
 
