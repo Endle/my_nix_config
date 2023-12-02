@@ -21,3 +21,9 @@ ms () {
   nix-shell -p python3 --run \
     "source ~/src/ms_env/bin/activate && cd /Users/zhenboli/src/mhc_predict/ && jupyter notebook"
 }
+
+rs () {
+  nix-shell -p rustc cargo libiconv
+}
+export RUSTC_WRAPPER=$(which sccache)
+
