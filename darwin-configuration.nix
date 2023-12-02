@@ -48,7 +48,7 @@ in
 # Applications
 
 
-  forcepkgs.texstudio
+  pkgs.texstudio
   # unstable.texstudio
   pkgs.texlive.combined.scheme-full
 
