@@ -45,11 +45,15 @@ in
   pkgs.yazi
 	pkgs.wezterm
 
+
+# Sys tools
+  pkgs.smartmontools
+
+
 # Applications
 
 
   pkgs.texstudio
-  # unstable.texstudio
   pkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm

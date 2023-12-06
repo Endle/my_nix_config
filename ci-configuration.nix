@@ -36,22 +36,27 @@ in
 	pkgs.tree-sitter # make lunarvim happy
   pkgs.gcc
   pkgs.gnumake
+  pkgs.sccache
 
 	pkgs.neovim
 
 
 # Terminal
   pkgs.yazi
-	# pkgs.wezterm
+	pkgs.wezterm
+
+
+# Sys tools
+  pkgs.smartmontools
+
 
 # Applications
 
 
-  # forcepkgs.texstudio
-  # unstable.texstudio
-  # pkgs.texlive.combined.scheme-full
+  pkgs.texstudio
+  pkgs.texlive.combined.scheme-full
 
-  # unstable.ArchiSteamFarm
+  unstable.ArchiSteamFarm
 
 	pkgs.sioyek
 	pkgs.libreoffice-bin
