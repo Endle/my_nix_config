@@ -40,6 +40,9 @@ in
 
 	pkgs.neovim
 
+  pkgs.qemu
+  pkgs.podman
+
 
 # Terminal
   pkgs.yazi
