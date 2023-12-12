@@ -45,8 +45,8 @@ in
 
 
 # Terminal
-  pkgs.yazi
-	pkgs.wezterm
+ #  pkgs.yazi
+	# pkgs.wezterm
 
 
 # Sys tools
