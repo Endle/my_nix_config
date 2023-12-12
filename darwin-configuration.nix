@@ -16,6 +16,8 @@ in
 	pkgs.git
   pkgs.git-lfs
   pkgs.mercurial
+  pkgs.meld #not configured yet
+  pkgs.difftastic #not applied to git yet
 
 
 
@@ -74,7 +76,6 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = false;  # default shell on catalina
