@@ -35,12 +35,13 @@ in
 
 
 # Dev tools
-	pkgs.tree-sitter # make lunarvim happy
   pkgs.gcc
   pkgs.gnumake
   pkgs.sccache
 
-	pkgs.neovim
+  pkgs.lunarvim
+  pkgs.python3 # make lunarvim happy
+	pkgs.tree-sitter # make lunarvim happy
 
   pkgs.qemu
   pkgs.podman

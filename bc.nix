@@ -4,9 +4,10 @@
       beancount
       fava
 
-      python310
-      python310Packages.pandas
-      python310Packages.titlecase
+      python311
+      python311Packages.pandas
+      python311Packages.titlecase
+      python311Packages.numpy
 
     ];
 }
