@@ -40,6 +40,12 @@ jobs:
               echo "$RUNNER_OS not supported"
               exit 1
          fi
+    - name : Xcodegen NUR
+      run: | 
+          ln -s ./home_.config_nixpkgs ~/.config/nixpkgs
+          if [ "$RUNNER_OS" == "macOS" ]; then
+              nix-shell -p nur.repos.endle.xcodegen
+          fi
     - name: Beancount
       run: |
         nix-shell -p fava beancount
