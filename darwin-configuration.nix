@@ -34,10 +34,17 @@ in
   # pkgs.darwin.xcode_12_3
 
 
+# Rust
+  pkgs.rustc
+  pkgs.cargo
+  pkgs.rustfmt
+  pkgs.clippy
+  pkgs.sccache
+
 # Dev tools
   pkgs.gcc
   pkgs.gnumake
-  pkgs.sccache
+
 
   pkgs.lunarvim
   pkgs.python3 # make lunarvim happy
