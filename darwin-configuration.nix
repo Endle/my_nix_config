@@ -40,6 +40,7 @@ in
   pkgs.rustfmt
   pkgs.clippy
   pkgs.sccache
+  pkgs.libiconv # needed by almost all rust projects
 
 # Dev tools
   pkgs.gcc
