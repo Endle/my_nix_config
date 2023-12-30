@@ -41,6 +41,9 @@ in
   pkgs.clippy
   pkgs.sccache
   pkgs.libiconv # needed by almost all rust projects
+  # fractal pre-commit check
+  pkgs.typos
+  pkgs.cargo-sort
 
 # Dev tools
   pkgs.gcc
