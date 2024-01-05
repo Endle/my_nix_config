@@ -31,7 +31,7 @@ in
 	pkgs.ripgrep
 	pkgs.fd
 
-  # pkgs.darwin.xcode_12_3
+  # pkgs.darwin.xcode_13_4_1
 
 
 # Rust
