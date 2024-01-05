@@ -16,6 +16,8 @@ in
 	pkgs.git
   pkgs.git-lfs
   pkgs.mercurial
+  pkgs.meld #not configured yet
+  pkgs.difftastic #not applied to git yet
 
 
 
@@ -29,16 +31,28 @@ in
 	pkgs.ripgrep
 	pkgs.fd
 
-  # pkgs.darwin.xcode_12_3
+  # pkgs.darwin.xcode_13_4_1
 
+
+# Rust
+  pkgs.rustc
+  pkgs.cargo
+  pkgs.rustfmt
+  pkgs.clippy
+  pkgs.sccache
+  pkgs.libiconv # needed by almost all rust projects
+  # fractal pre-commit check
+  pkgs.typos
+  pkgs.cargo-sort
 
 # Dev tools
-	pkgs.tree-sitter # make lunarvim happy
   pkgs.gcc
   pkgs.gnumake
-  pkgs.sccache
 
-	pkgs.neovim
+
+  pkgs.lunarvim
+  pkgs.python3 # make lunarvim happy
+	pkgs.tree-sitter # make lunarvim happy
 
   pkgs.qemu
   pkgs.podman
@@ -74,7 +88,6 @@ in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = false;  # default shell on catalina
