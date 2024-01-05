@@ -83,7 +83,7 @@ in
     ];
 
 
-  # nixpkgs.config.allowUnfree = true; # For xcode
+  nixpkgs.config.allowUnfree = true; # For xcode
 
 
   # Auto upgrade nix package and the daemon service.

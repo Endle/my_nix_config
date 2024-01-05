@@ -5,4 +5,6 @@
       inherit pkgs;
     };
   };
+
+   allowUnfree = true;
 }
