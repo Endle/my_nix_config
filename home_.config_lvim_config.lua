@@ -4,3 +4,6 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
 lvim.colorscheme = "tokyo"
+
+require('nvim-treesitter.install').compilers = { 'gcc' }
+
