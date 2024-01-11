@@ -67,6 +67,9 @@ in
   pkgs.smartmontools
 
 
+  pkgs.nix-index
+
+
 # Applications
 
 
