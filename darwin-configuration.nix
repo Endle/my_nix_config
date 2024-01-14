@@ -62,6 +62,9 @@ in
   pkgs.yazi
 	pkgs.wezterm
 
+# TODO not configured yet
+  pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
+
 
 # Sys tools
   pkgs.smartmontools
