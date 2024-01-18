@@ -46,7 +46,7 @@ in
   pkgs.cargo-sort
 
 # Dev tools
-  pkgs.gcc
+  pkgs.gcc13
   pkgs.gnumake
 
 
