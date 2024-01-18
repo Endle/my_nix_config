@@ -27,3 +27,12 @@ rs () {
 }
 export RUSTC_WRAPPER=$(which sccache)
 
+
+# Homebrew: put their path at last
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
