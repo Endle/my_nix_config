@@ -56,6 +56,7 @@ in
 
   pkgs.qemu
   pkgs.podman
+  pkgs.lima
 
 
 # Terminal

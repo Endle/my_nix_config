@@ -36,3 +36,5 @@ export HOMEBREW_REPOSITORY="/opt/homebrew";
 export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+export LIMA_HOME='/Volumes/extend/virtual_machine_images/lima_home'
