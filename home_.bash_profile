@@ -26,6 +26,7 @@ rs () {
   nix-shell -p rustc cargo libiconv
 }
 export RUSTC_WRAPPER=$(which sccache)
+export SCCACHE_CACHE_SIZE="50G"
 
 
 # Homebrew: put their path at last

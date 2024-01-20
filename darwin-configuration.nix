@@ -56,7 +56,7 @@ in
 
   pkgs.qemu
   pkgs.podman
-  pkgs.lima
+  unstable.lima
 
 
 # Terminal
