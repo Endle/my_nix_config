@@ -23,8 +23,18 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+
 . "$HOME/.cargo/env"
 
 export RUSTC_WRAPPER=$(which sccache)
 export SCCACHE_CACHE_SIZE="50G"
 
+alias cdm='cd /dev/shm'
+
+alias dfs="cd ~/src/fireSeqSearch/fire_seq_search_server && sh debug_server.sh"
+# export WINESERVER=/home/lizhenbo/src/wine/wine
+# export WINE=$WINESERVER
+export WINE=/home/lizhenbo/src/wine/wine
+alias wi="$WINE"
+alias wk='~/src/winetricks/src/winetricks'
+alias cdwine="cd ~/src/wine"
