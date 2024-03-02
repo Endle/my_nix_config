@@ -38,3 +38,4 @@ export WINE=/home/lizhenbo/src/wine/wine
 alias wi="$WINE"
 alias wk='~/src/winetricks/src/winetricks'
 alias cdwine="cd ~/src/wine"
+alias bc='cd /home/lizhenbo/apps/resilio/folders/zhenbo_docs/finance/beancount'

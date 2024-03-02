@@ -11,9 +11,13 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+
+
+config.font = wezterm.font 'JetBrains Mono'
+
 -- This is where you actually apply your config choices
 
-config.default_prog = { '/bin/bash', '-l' }
+-- config.default_prog = { '/bin/bash', '-l' }
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Alabaster'
