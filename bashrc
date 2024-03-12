@@ -39,5 +39,6 @@ alias wi="$WINE"
 alias wk='~/src/winetricks/src/winetricks'
 alias cdwine="cd ~/src/wine"
 alias wp='cd /home/lizhenbo/.wine/drive_c/Program\ Files && exa'
+alias gst='git status -uno'
 
 alias bc='cd /home/lizhenbo/apps/resilio_bin/folders/zhenbo_doc/finance/beancount'

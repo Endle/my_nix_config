@@ -5,5 +5,29 @@
 --
 lvim.colorscheme = "tokyo"
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 require('nvim-treesitter.install').compilers = { 'gcc' }
 
+lvim.plugins = {
+	{ "CRAG666/code_runner.nvim" },
+}
+
+require('code_runner').setup({
+  filetype = {
+    java = {
+      "cd $dir &&",
+      "javac $fileName &&",
+      "java $fileNameWithoutExt"
+    },
+    python = "python3 -u",
+    typescript = "deno run",
+    rust = {
+      "cd $dir &&",
+      "rustc $fileName &&",
+      "$dir/$fileNameWithoutExt"
+    },
+  },
+})
+vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
