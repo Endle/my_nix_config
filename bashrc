@@ -52,15 +52,31 @@ function getwine {
     git pull origin master
     cscope -bkqR &
 }
-function mkwine {
+
+function mkwine_only {
     export JOBS=30
+    export CFLAGS="-O0 -g"
+    export CROSSCFLAGS="$CFLAGS"
     cd "$WINE_SOURCE"
     cd ../wine64
-    CC="sccache gcc" CFLAGS="-Og -O0" CROSSCFLAGS="-Og -O0" ../wine/configure --enable-win64
     make -j$JOBS
     cd ../wine32
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig CC="sccache gcc -m32"  CROSSCC="sccache i686-w64-mingw32-gcc" CFLAGS="-Og -O0" CROSSCFLAGS="-Og -O0" ../wine/configure --with-wine64=../wine64
     make -j$JOBS
+    cd "$WINE_SOURCE"
+}
+
+function mkwine {
+    export JOBS=30
+    export CFLAGS="-O0 -g"
+    export CROSSCFLAGS="$CFLAGS"
+    cd "$WINE_SOURCE"
+    cd ../wine64
+    CC="sccache gcc"  ../wine/configure --enable-win64
+    cd ../wine32
+    PKG_CONFIG_PATH=/usr/lib/pkgconfig CC="sccache gcc -m32"  CROSSCC="sccache i686-w64-mingw32-gcc" \
+        ../wine/configure --with-wine64=../wine64
+    mkwine_only
+    cd "$WINE_SOURCE"
 }
 
 
