@@ -44,6 +44,8 @@ export WINE=/home/lizhenbo/src/wine64/wine
 alias wi="$WINE"
 alias wk='~/src/winetricks/src/winetricks'
 alias cdwine="cd $WINE_SOURCE"
+alias cdp="cd $WINE_SOURCE/dlls/propsys"
+alias cdpb="cd /home/lizhenbo/src/wine64/dlls/propsys"
 alias wp='cd /home/lizhenbo/.wine/drive_c/Program\ Files && exa'
 
 function getwine {
@@ -65,6 +67,16 @@ function mkwine_only {
     cd "$WINE_SOURCE"
 }
 
+function mkw64 {
+    export JOBS=30
+    export CFLAGS="-O0 -g"
+    export CROSSCFLAGS="$CFLAGS"
+    cd "$WINE_SOURCE"
+    cd ../wine64
+    CC="sccache gcc"  ../wine/configure --enable-win64
+    make -j$JOBS
+    cd "$WINE_SOURCE"
+}
 function mkwine {
     export JOBS=30
     export CFLAGS="-O0 -g"
@@ -78,6 +90,7 @@ function mkwine {
     mkwine_only
     cd "$WINE_SOURCE"
 }
+export PATH="$PATH:~/src/WineMagicPrefix"
 
 
 alias gst='git status -uno'
