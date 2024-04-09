@@ -51,6 +51,7 @@ in
 
 
   pkgs.lunarvim
+  pkgs.neovim
   pkgs.python3 # make lunarvim happy
 	pkgs.tree-sitter # make lunarvim happy
 
@@ -76,9 +77,6 @@ in
 
 # Applications
 
-
-  pkgs.texstudio
-  pkgs.texlive.combined.scheme-full
 
   unstable.ArchiSteamFarm
 
