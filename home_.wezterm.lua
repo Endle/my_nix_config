@@ -12,6 +12,45 @@ if wezterm.config_builder then
 end
 
 
+local act = wezterm.action
+
+local function macCMDtoMeta()
+	local keys = "cabdefghijklmnopqrstuwxyz1234567890/" -- no c,v
+	local keymappings = {}
+	for i = 1, #keys do
+		local c = keys:sub(i, i)
+		table.insert(keymappings, {
+			key = c,
+			mods = "CMD",
+			action = act.SendKey({
+				key = c,
+				mods = "CTRL",
+			}),
+		})
+		table.insert(keymappings, {
+			key = c,
+			mods = "CMD|SHIFT",
+			action = act.SendKey({
+				key = c,
+				mods = "CTRL|SHIFT",
+			}),
+		})
+	end
+	return keymappings
+end
+
+local function generateKeyMappings()
+	local keymappings = {
+		{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.SpawnWindow },
+		{ key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+		{ key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
+		table.unpack(macCMDtoMeta()),
+	}
+	return keymappings
+end
+
+config.keys = generateKeyMappings()
+
 
 config.font = wezterm.font 'JetBrains Mono'
 
