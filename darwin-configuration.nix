@@ -35,19 +35,21 @@ in
 
 
 # Rust
-  pkgs.rustc
-  pkgs.cargo
-  pkgs.rustfmt
-  pkgs.clippy
+  #pkgs.rustc
+  #pkgs.cargo
+  #pkgs.rustfmt
+  #pkgs.clippy
   pkgs.sccache
   pkgs.libiconv # needed by almost all rust projects
   # fractal pre-commit check
-  pkgs.typos
-  pkgs.cargo-sort
+  #pkgs.typos
+  #pkgs.cargo-sort
 
 # Dev tools
   pkgs.gcc13
   pkgs.gnumake
+
+pkgs.rustup
 
 
   pkgs.lunarvim
