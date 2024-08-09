@@ -15,7 +15,7 @@ end
 local act = wezterm.action
 
 local function macCMDtoMeta()
-	local keys = "cabdefghijklmopqrstuwxyz/" -- no v, no n
+	local keys = "cabdefghijklmopqrsuwxyz/" -- no v, no n
 	local keymappings = {}
 	for i = 1, #keys do
 		local c = keys:sub(i, i)
@@ -48,7 +48,7 @@ end
 
 local function generateKeyMappings()
 	local keymappings = {
-		{ key = "n", mods = "CMD", action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
+		{ key = "t", mods = "CMD", action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
 		{ key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
 		{ key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
 		table.unpack(macCMDtoMeta()),
