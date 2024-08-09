@@ -13,61 +13,55 @@ in
     [ 
 
 # Code Management
-	pkgs.git
-  pkgs.git-lfs
-  pkgs.mercurial
-  pkgs.meld #not configured yet
-  pkgs.difftastic #not applied to git yet
+
+    pkgs.git
+    pkgs.git-lfs
+    pkgs.mercurial
+    pkgs.meld #not configured yet
+    pkgs.difftastic #not applied to git yet
 
 
 
 # Bash tools
-  pkgs.coreutils-full
+    pkgs.coreutils-full
 
-	pkgs.htop
-  pkgs.btop
-  pkgs.wget
-	pkgs.eza
-	pkgs.ripgrep
-	pkgs.fd
+    pkgs.htop
+    pkgs.btop
+    pkgs.wget
+    pkgs.eza
+    pkgs.ripgrep
+    pkgs.fd
 
-  # pkgs.darwin.xcode_13_4_1
+    pkgs.sccache
+    pkgs.libiconv # needed by almost all rust projects
 
-
-# Rust
-  #pkgs.rustc
-  #pkgs.cargo
-  #pkgs.rustfmt
-  #pkgs.clippy
-  pkgs.sccache
-  pkgs.libiconv # needed by almost all rust projects
-  # fractal pre-commit check
-  #pkgs.typos
-  #pkgs.cargo-sort
+    # fractal pre-commit check
+    #pkgs.typos
+    #pkgs.cargo-sort
 
 # Dev tools
-  pkgs.gcc13
-  pkgs.gnumake
+#    pkgs.gcc13
+#    pkgs.gnumake
 
-pkgs.rustup
-
-
-  pkgs.lunarvim
-  pkgs.neovim
-  pkgs.python3 # make lunarvim happy
-	pkgs.tree-sitter # make lunarvim happy
-
-  pkgs.qemu
-  pkgs.podman
-  unstable.lima
+    pkgs.rustup
 
 
-# Terminal
-  pkgs.yazi
-	pkgs.wezterm
+#    pkgs.lunarvim
+    pkgs.neovim
+#    pkgs.python3 # make lunarvim happy
+#    pkgs.tree-sitter # make lunarvim happy
 
-# TODO not configured yet
-  pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
+    pkgs.qemu
+    pkgs.podman
+    unstable.lima
+
+
+    # Terminal
+    pkgs.yazi
+    pkgs.wezterm
+
+    # TODO not configured yet
+    pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
 
 
 # Sys tools
