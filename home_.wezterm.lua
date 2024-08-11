@@ -36,6 +36,21 @@ local function macCMDtoMeta()
 			}),
 		})
 	end
+	return keymappings
+end
+
+local function generateKeyMappings()
+    local keymappings = {}
+    if wezterm.target_triple == 'aarch64-apple-darwin' then
+        keymappings = {
+            { key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+            { key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
+            table.unpack(macCMDtoMeta()),
+        }
+    end
+    table.insert(keymappings,
+        { key = "t", mods = "CTRL", action = wezterm.action.SpawnTab 'CurrentPaneDomain' }
+    )
 	for i = 1, 8 do
 		table.insert(keymappings, {
 		    key = tostring(i),
@@ -43,16 +58,6 @@ local function macCMDtoMeta()
 		    action = act.ActivateTab(i - 1),
 		  })
   	end
-	return keymappings
-end
-
-local function generateKeyMappings()
-	local keymappings = {
-		{ key = "t", mods = "CMD", action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
-		{ key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
-		{ key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
-		table.unpack(macCMDtoMeta()),
-	}
 	return keymappings
 end
 
