@@ -54,6 +54,7 @@ in
     pkgs.qemu
     pkgs.podman
     unstable.lima
+    unstable.utm
 
 
     # Terminal
