@@ -15,8 +15,19 @@ end
 local act = wezterm.action
 
 local function macCMDtoMeta()
-	local keys = "cabdefghijklmopqrsuwxyz/" -- no v, no n
-	local keymappings = {}
+
+    local keymappings = {
+        { key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
+        { key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
+        { key = "c", mods = "CMD", action = act.SendKey({
+            key="c",
+            mods = "CTRL"
+        })},
+        --{ key = "c", mods = "CMD", action = wezterm.action{ act.SendKey({key="c", mods="CTRL"})},
+    }
+
+	local keys = "abdefghijklmopqrsuwxyz/" -- no v, no n
+    -- no c
 	for i = 1, #keys do
 		local c = keys:sub(i, i)
 		table.insert(keymappings, {
@@ -36,6 +47,7 @@ local function macCMDtoMeta()
 			}),
 		})
 	end
+
 	return keymappings
 end
 
@@ -43,11 +55,10 @@ local function generateKeyMappings()
     local keymappings = {}
     if wezterm.target_triple == 'aarch64-apple-darwin' then
         keymappings = {
-            { key = "c", mods = "SHIFT|CMD", action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
-            { key = "v", mods = "SHIFT|CMD", action = wezterm.action.PasteFrom 'Clipboard' },
             table.unpack(macCMDtoMeta()),
         }
     end
+
     table.insert(keymappings,
         { key = "t", mods = "CTRL", action = wezterm.action.SpawnTab 'CurrentPaneDomain' }
     )
@@ -66,7 +77,6 @@ config.keys = generateKeyMappings()
 
 config.font = wezterm.font 'JetBrains Mono'
 
--- This is where you actually apply your config choices
 
 config.default_prog = { '/bin/bash', '-l' }
 config.font_size = 14.0
