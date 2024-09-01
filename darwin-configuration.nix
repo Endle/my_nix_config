@@ -60,6 +60,7 @@ in
     # Terminal
     pkgs.yazi
     pkgs.wezterm
+    pkgs.trash-cli
 
     # TODO not configured yet
     pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
