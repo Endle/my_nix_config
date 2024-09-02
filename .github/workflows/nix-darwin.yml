@@ -1,6 +1,6 @@
 name: "nix_darwin_manual"
 env:
-  CURRENT_STABLE_CHANNEL: nixpkgs-23.05-darwin
+  CURRENT_STABLE_CHANNEL: ${{ matrix.nix_channel }}
 on:
   pull_request:
   push:
@@ -9,7 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest]
+        os: [macos-latest,  macos-14]
+        nix_channel: [nixpkgs-23.05-darwin, nixpkgs-24.05-darwin, nixpkgs-unstable ]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
