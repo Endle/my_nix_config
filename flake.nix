@@ -2,12 +2,17 @@
   description = "Example Darwin system flake";
 
   inputs = {
+      lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, lix-module }:
   let
     configuration = { pkgs, ... }: {
 
@@ -115,7 +120,9 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Zhenbos-Mac-mini
     darwinConfigurations."Zhenbos-Mac-mini" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ configuration 
+      lix-module.nixosModules.default
+      ];
     };
 
     # Expose the package set, including overlays, for convenience.
