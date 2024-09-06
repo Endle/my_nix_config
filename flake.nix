@@ -55,6 +55,7 @@
 
 #    pkgs.lunarvim
     pkgs.neovim
+    pkgs.ctags
 #    pkgs.python3 # make lunarvim happy
 #    pkgs.tree-sitter # make lunarvim happy
 
