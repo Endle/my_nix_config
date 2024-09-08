@@ -21,7 +21,11 @@ jobs:
         mkdir -pv simple
         mv -v ./simple_flake.nix simple/flake.nix
         ls -lh ./simple
-        nix run nix-darwin -- switch --flake  ./simple
+        pwd
+        export SIMP=$(pwd)/simple
+        echo $SIMP
+        ls -lh $SIMP
+        nix run nix-darwin -- switch --flake  $SIMP
     - name: Install nix darwin
       run: |
         nix run nix-darwin -- switch --flake  ./
