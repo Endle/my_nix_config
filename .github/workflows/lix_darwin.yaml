@@ -1,0 +1,34 @@
+name: "lix_darwin_manual"
+env:
+  CURRENT_STABLE_CHANNEL: nixpkgs-24.05-darwin
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest,  macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: DeterminateSystems/nix-installer-action@main
+    - uses: DeterminateSystems/magic-nix-cache-action@main
+    - run: nix-shell -p nix-info --run "nix-info -m"
+    - name: Set channels
+      run: |
+        echo ${{ matrix.nix_channel }}
+        nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
+        nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
+        nix-channel --update
+    - run: |
+        mkdir ~/.nixpkgs
+        cp darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
+        #cp ci-configuration.nix ~/.nixpkgs/darwin-configuration.nix
+    - run: |
+        export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$NIX_PATH
+        echo $NIX_PATH
+        echo $(nix-build '<darwin>' -A system --no-out-link)
+        $(nix-build '<darwin>' -A system --no-out-link)/sw/bin/darwin-rebuild build
+
