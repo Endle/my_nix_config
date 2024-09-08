@@ -1,16 +1,16 @@
 {
-  description = "Example Darwin system flake";
+    description = "Zhenbo Darwin system flake";
 
-  inputs = {
-      lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
+    inputs = {
+        lix-module = {
+              url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+              inputs.nixpkgs.follows = "nixpkgs"; 
+        };
+
+        nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+        nix-darwin.url = "github:LnL7/nix-darwin";
+        nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-  };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, lix-module }:
   let
