@@ -18,6 +18,6 @@ jobs:
     - run: nix-shell -p nix-info --run "nix-info -m"
     - name: Install nix darwin
       run: |
-        nix run nix-darwin -- switch --flake  ./flake.nix
+        nix run nix-darwin -- switch --flake  $(pwd)
     - run: nix-shell -p nix-info --run "nix-info -m"
         
