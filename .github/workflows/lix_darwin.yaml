@@ -21,10 +21,10 @@ jobs:
         mkdir -pv simple
         mv -v ./simple_flake.nix simple/flake.nix
         ls -lh ./simple
-        nix run nix-darwin -- switch --flake  $(pwd)/simple
+        nix run nix-darwin -- switch --flake  ./simple
     - name: Install nix darwin
       run: |
-        nix run nix-darwin -- switch --flake  $(pwd)
+        nix run nix-darwin -- switch --flake  ./
     - run: nix-shell -p nix-info --run "nix-info -m"
     # In future use https://git.lix.systems/lix-project/lix-install-action
         
