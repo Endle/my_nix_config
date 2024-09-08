@@ -20,4 +20,5 @@ jobs:
       run: |
         nix run nix-darwin -- switch --flake  $(pwd)
     - run: nix-shell -p nix-info --run "nix-info -m"
+    # In future use https://git.lix.systems/lix-project/lix-install-action
         
