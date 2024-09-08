@@ -19,7 +19,8 @@ jobs:
     - name: Install simple flake
       run: |
         mkdir -pv simple
-        mv ./simple_flake.nix simple/flake.nix
+        mv -v ./simple_flake.nix simple/flake.nix
+        ls -lh ./simple
         nix run nix-darwin -- switch --flake  $(pwd)/simple
     - name: Install nix darwin
       run: |
