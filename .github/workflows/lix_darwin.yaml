@@ -9,13 +9,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest,  macos-14]
+        os: [ macos-14 ]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - run: nix-shell -p nix-info --run "nix-info -m"
+    - name: Install simple flake
+      run: |
+        mkdir -pv simple
+        mv ./simple_flake.nix simple/flake.nix
+        nix run nix-darwin -- switch --flake  $(pwd)/simple
     - name: Install nix darwin
       run: |
         nix run nix-darwin -- switch --flake  $(pwd)
