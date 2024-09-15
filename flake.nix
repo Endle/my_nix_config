@@ -4,7 +4,7 @@
     inputs = {
         lix-module = {
               url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-              inputs.nixpkgs.follows = "nixpkgs"; 
+              inputs.nixpkgs.follows = "nixpkgs";
         };
 
         nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -17,7 +17,7 @@
     configuration = { pkgs, ... }: {
 
   environment.systemPackages =
-    [ 
+    [
 
 # Code Management
 
@@ -121,8 +121,8 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Zhenbos-Mac-mini
     darwinConfigurations."Zhenbos-Mac-mini" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration 
-      lix-module.nixosModules.default
+      modules = [ configuration
+        lix-module.nixosModules.default
       ];
     };
 
