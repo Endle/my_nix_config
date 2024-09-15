@@ -12,87 +12,56 @@
         nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, lix-module }:
-  let
-    configuration = { pkgs, ... }: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, lix-module }: let configuration = { pkgs, ... }:
+  {
 
-  environment.systemPackages =
-    [
+    environment.systemPackages = [
+        # Code Management
+        pkgs.git
+        pkgs.git-lfs
+        pkgs.mercurial
+        pkgs.meld #not configured yet
+        pkgs.difftastic #not applied to git yet
 
-# Code Management
+        # Bash tools
+        pkgs.coreutils-full
 
-    pkgs.git
-    pkgs.git-lfs
-    pkgs.mercurial
-    pkgs.meld #not configured yet
-    pkgs.difftastic #not applied to git yet
+        pkgs.htop pkgs.btop pkgs.wget pkgs.eza
+        pkgs.ripgrep pkgs.fd
+        pkgs.trash-cli
 
+        pkgs.sccache
+        pkgs.libiconv # needed by almost all rust projects
 
+        # fractal pre-commit check
+        #pkgs.typos
+        #pkgs.cargo-sort
+        pkgs.rustup
 
-# Bash tools
-    pkgs.coreutils-full
+        pkgs.neovim
+        pkgs.ctags
 
-    pkgs.htop
-    pkgs.btop
-    pkgs.wget
-    pkgs.eza
-    pkgs.ripgrep
-    pkgs.fd
+        pkgs.qemu
+        pkgs.podman
+        pkgs.lima
+        pkgs.utm
 
-    pkgs.sccache
-    pkgs.libiconv # needed by almost all rust projects
+        # Terminal
+        pkgs.yazi
+        pkgs.wezterm
+        # TODO not configured yet
+        pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
+        # Sys tools
+          pkgs.smartmontools
+          pkgs.nix-index
+        # Applications
+          pkgs.ArchiSteamFarm
 
-    # fractal pre-commit check
-    #pkgs.typos
-    #pkgs.cargo-sort
-
-# Dev tools
-#    pkgs.gcc13
-#    pkgs.gnumake
-
-    pkgs.rustup
-
-
-#    pkgs.lunarvim
-    pkgs.neovim
-    pkgs.ctags
-#    pkgs.python3 # make lunarvim happy
-#    pkgs.tree-sitter # make lunarvim happy
-
-    pkgs.qemu
-    pkgs.podman
-    pkgs.lima
-    pkgs.utm
-
-
-    # Terminal
-    pkgs.yazi
-    pkgs.wezterm
-    pkgs.trash-cli
-
-    # TODO not configured yet
-    pkgs.atuin #https://github.com/atuinsh/atuin#shell-plugin
-
-
-# Sys tools
-  pkgs.smartmontools
-
-
-  pkgs.nix-index
-
-
-# Applications
-
-
-  pkgs.ArchiSteamFarm
-
-	pkgs.sioyek
-	pkgs.libreoffice-bin
-  pkgs.inkscape
-# mpv buggy now: https://matrix.to/#/!lheuhImcToQZYTQTuI:nixos.org/$ZsUQH38c1LkOph_y1Jh4yVMgekP_Pg8iwYumSl8VFeE?via=nixos.org&via=matrix.org&via=nixos.dev
-	pkgs.mpv
-	pkgs.jellyfin
-    ];
+            pkgs.sioyek
+            pkgs.libreoffice-bin
+          pkgs.inkscape
+            pkgs.mpv
+        ];
 
 
       # Auto upgrade nix package and the daemon service.
