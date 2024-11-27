@@ -50,6 +50,7 @@ export ROBOCOPY_PATH="programs/robocopy"
 alias cdr="cd $WINE_SOURCE/$ROBOCOPY_PATH"
 alias cdrb="cd /home/lizhenbo/src/wine64/$ROBOCOPY_PATH"
 alias wp='cd /home/lizhenbo/.wine/drive_c/Program\ Files && exa'
+alias cdst='cd /home/lizhenbo/.wine/drive_c/Program\ Files\ \(x86\)/Steam'
 
 function getwine {
     cd "$WINE_SOURCE"
@@ -84,16 +85,31 @@ function mkwine {
     export JOBS=30
     export CFLAGS="-O0 -g"
     export CROSSCFLAGS="$CFLAGS"
+
+    export i386_CC="sccache i686-w64-mingw32-gcc"
+    #export x86_64_CC="sccache i686-w64-mingw32-gcc"
+    export x86_64_CC="sccache x86_64-w64-mingw32-gcc"
+    export CROSSCC_X32="${i386_CC}"
+    export CROSSCC_X64="${x86_64_CC}"
+
+    export WINE_INSTALL_PATH="/home/lizhenbo/apps/wine"
     cd "$WINE_SOURCE"
     cd ../wine64
-    CC="sccache gcc"  ../wine/configure --enable-win64
+    CC="sccache gcc"  \
+        ../wine/configure --enable-win64 --prefix=$WINE_INSTALL_PATH
+    make -j$JOBS
+    make install -j$JOBS
     cd ../wine32
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig CC="sccache gcc -m32"  CROSSCC="sccache i686-w64-mingw32-gcc" \
-        ../wine/configure --with-wine64=../wine64
-    mkwine_only
+    PKG_CONFIG_PATH=/usr/lib/pkgconfig \
+        CC="sccache gcc -m32"   \
+        ../wine/configure --with-wine64=../wine64 --prefix=$WINE_INSTALL_PATH
+
+    make -j$JOBS
+    make install -j$JOBS
     cd "$WINE_SOURCE"
 }
 export PATH="$PATH:~/src/WineMagicPrefix"
+export PATH="/home/lizhenbo/apps/wine/bin:$PATH"
 
 
 alias gst='git status -uno'
