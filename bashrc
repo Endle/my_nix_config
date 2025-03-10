@@ -129,3 +129,14 @@ alias bc='cd /home/lizhenbo/apps/resilio_bin/folders/zhenbo_doc/finance/beancoun
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function ns()
+{
+    local f=$(ls -1 *.nix 2>/dev/null | head -1)
+    echo "Loading nix file $f"
+    nix-shell $f
+}
+
+
+export FLYCTL_INSTALL="$HOME/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
